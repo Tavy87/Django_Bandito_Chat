@@ -31,19 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "chat.apps.ChatConfig",
+    "ChatApp",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    'daphne',  
     "django.contrib.staticfiles",
 
-    # add django channels
-    'channels',
+
 ]
-ASGI_APPLICATION = 'ChatApp.asgi.application'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -81,8 +78,8 @@ WSGI_APPLICATION = "ChatApp.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "Django_Bandito_Chat",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ChatApp",
     }
 }
 
