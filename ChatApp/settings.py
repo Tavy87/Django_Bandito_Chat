@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 867e4407480e470dc46150e8565063f139ad9c9d
 ]
 
 MIDDLEWARE = [
@@ -76,8 +81,13 @@ WSGI_APPLICATION = "ChatApp.wsgi.application"
 
 DATABASES = {
     "default": {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ChatApp',
+=======
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ChatApp",
+>>>>>>> 867e4407480e470dc46150e8565063f139ad9c9d
     }
 }
 
