@@ -31,20 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "chat.apps.ChatConfig",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    'daphne',  
     "django.contrib.staticfiles",
-
-    # add django channels
-    'channels',
 ]
-ASGI_APPLICATION = 'ChatApp.asgi.application'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
