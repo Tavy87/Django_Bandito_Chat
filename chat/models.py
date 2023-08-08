@@ -11,8 +11,13 @@ CHAT_TYPE= (
     ( "B", "PERSONAL" ),
 )
 
-class User(models.Model):
+EVENT_TYPE= (
+    ( "A", "MORNING MEETING"),
+    ( "B", "NOOON MEETING"),
+    ( "C", "EVENING MEETING"),
+)
 
+class User(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
@@ -29,7 +34,18 @@ class ChatRoom(models.Model):
     default=LAST_ACTIVE[0][0])
 
     def __str__(self):
-        return ( f'{self.id}| {self.first_name}')
+        return ( f'{self.id}| {self.chat_type}')
+
+class Event(models.Model):
+    event_type = models.CharField(max_length=100,choices=EVENT_TYPE, 
+    default=EVENT_TYPE[0][0])
+    date = models.DateField('Event Date')
+    user = models.ForeignKey(
+    User,
+    on_delete=models.CASCADE
+  )
+    def __str__(self):
+        return f"{self.get_meal_display()} on {self.date}"
     
 class Message(models.Model):
     content=models.CharField(max_length=100000)
@@ -39,3 +55,6 @@ class Message(models.Model):
 
     def __str__(self):
         return f'Message {self.id}| {self.content}'
+    
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'message_id': self.id})
